@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { Award, LucideIcon, Target } from "lucide-react";
 
 /**
  * Props for `VisionAndMission`.
@@ -8,44 +9,74 @@ import { SliceComponentProps } from "@prismicio/react";
 export type VisionAndMissionProps =
   SliceComponentProps<Content.VisionAndMissionSlice>;
 
+type InfoCardProps = {
+  icon: LucideIcon;
+  title: string;
+  children: React.ReactNode;
+  variant: "light" | "dark";
+};
+
+const InfoCard = ({ icon: Icon, title, children, variant }: InfoCardProps) => {
+  // Define styles based on the variant to keep the component clean
+  const styles = {
+    light: {
+      container: "bg-gray-50 text-gray-900",
+      iconContainer: "bg-white",
+      icon: "text-blue-600",
+      paragraph: "text-gray-600",
+    },
+    dark: {
+      container: "bg-[#0B3558] text-white", // Using a consistent dark blue
+      iconContainer: "bg-blue-900",
+      icon: "text-white",
+      paragraph: "text-blue-100",
+    },
+  };
+
+  const currentStyle = styles[variant];
+
+  return (
+    <div
+      className={`p-8 md:p-12 flex flex-col justify-center items-center ${currentStyle.container}`}
+    >
+      {/* 2. Added a max-width container for better readability on large screens */}
+      <div className="w-full max-w-xl">
+        <div className="flex items-center gap-4 mb-6">
+          <div
+            className={`w-14 h-14 rounded-full flex items-center justify-center shadow-sm ${currentStyle.iconContainer}`}
+          >
+            <Icon className={`w-7 h-7 ${currentStyle.icon}`} />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold">{title}</h2>
+        </div>
+        <p className={`text-lg leading-relaxed ${currentStyle.paragraph}`}>
+          {children}
+        </p>
+      </div>
+    </div>
+  );
+};
+
 /**
  * Component for "VisionAndMission" Slices.
  */
-const VisionAndMission: FC<VisionAndMissionProps> = ({ slice }) => {
+const VisionAndMission: FC<VisionAndMissionProps> = () => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for vision_and_mission (variation: {slice.variation}
-      ) slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select a model optimized for coding (e.g. Claude 3.7 Sonnet or similar)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       */}
+    <section className="w-full">
+      <div className="grid md:grid-cols-2 min-h-[400px]">
+        <InfoCard title="Our Vision" icon={Target} variant="light">
+          To empower accountancy practices through SmartSourcing, delivering
+          automation-driven, professional services that foster growth,
+          efficiency, and profitability beyond traditional outsourcing.
+        </InfoCard>
+
+        <InfoCard title="Our Mission" icon={Award} variant="dark">
+          To provide accountancy firms with innovative, technology-driven
+          outsourcing solutions. We are dedicated to enhancing our clients&apos;
+          operational efficiency and value by combining expert talent with
+          cutting-edge automation and a commitment to partnership.
+        </InfoCard>
+      </div>
     </section>
   );
 };

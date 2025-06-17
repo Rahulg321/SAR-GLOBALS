@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "testimonials_section": {
+              "type": "SharedSlice"
+            },
             "image_hero": {
               "type": "SharedSlice"
             },

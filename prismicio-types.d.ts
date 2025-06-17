@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | TestimonialsSectionSlice
   | ImageHeroSlice
   | VisionAndMissionSlice
   | HeadingContentSlice;
@@ -73,6 +74,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TestimonialsSectionSlice
   | ImageHeroSlice
   | VisionAndMissionSlice
   | HeadingContentSlice;
@@ -214,6 +216,36 @@ export type ImageHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for TestimonialsSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *TestimonialsSection*
+ */
+type TestimonialsSectionSliceVariation = TestimonialsSectionSliceDefault;
+
+/**
+ * TestimonialsSection Shared Slice
+ *
+ * - **API ID**: `testimonials_section`
+ * - **Description**: TestimonialsSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSectionSlice = prismic.SharedSlice<
+  "testimonials_section",
+  TestimonialsSectionSliceVariation
+>;
+
+/**
  * Default variation for VisionAndMission Slice
  *
  * - **API ID**: `default`
@@ -278,6 +310,9 @@ declare module "@prismicio/client" {
       ImageHeroSlice,
       ImageHeroSliceVariation,
       ImageHeroSliceDefault,
+      TestimonialsSectionSlice,
+      TestimonialsSectionSliceVariation,
+      TestimonialsSectionSliceDefault,
       VisionAndMissionSlice,
       VisionAndMissionSliceVariation,
       VisionAndMissionSliceDefault,
