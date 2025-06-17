@@ -2,6 +2,4 @@
 
 import dynamic from "next/dynamic";
 
-export const components = {
-  content: dynamic(() => import("./Content")),
-};
+export const components = {};

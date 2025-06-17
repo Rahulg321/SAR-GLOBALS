@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = ContentSlice;
+type HomepageDocumentDataSlicesSlice = never;
 
 /**
  * Content for Homepage documents
@@ -69,7 +69,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = ContentSlice;
+type PageDocumentDataSlicesSlice = never;
 
 /**
  * Content for Page documents
@@ -132,51 +132,6 @@ export type PageDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = HomepageDocument | PageDocument;
 
-/**
- * Primary content in *Content → Default → Primary*
- */
-export interface ContentSliceDefaultPrimary {
-  /**
-   * Main_Content field in *Content → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content.default.primary.main_content
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  main_content: prismic.RichTextField;
-}
-
-/**
- * Default variation for Content Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ContentSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ContentSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Content*
- */
-type ContentSliceVariation = ContentSliceDefault;
-
-/**
- * Content Shared Slice
- *
- * - **API ID**: `content`
- * - **Description**: Content
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ContentSlice = prismic.SharedSlice<
-  "content",
-  ContentSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -205,10 +160,6 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
-      ContentSlice,
-      ContentSliceDefaultPrimary,
-      ContentSliceVariation,
-      ContentSliceDefault,
     };
   }
 }
