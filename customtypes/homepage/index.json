@@ -10,7 +10,17 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "image_hero": {
+              "type": "SharedSlice"
+            },
+            "vision_and_mission": {
+              "type": "SharedSlice"
+            },
+            "heading_content": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

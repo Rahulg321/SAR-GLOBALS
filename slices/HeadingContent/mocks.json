@@ -1,0 +1,20 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"featured_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation est do aute ad incididunt nostrud ea veniam aliquip adipisicing. Aliquip esse dolore proident duis deserunt ex cupidatat voluptate cupidatat sunt voluptate nulla. Veniam voluptate est eiusmod dolor non."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

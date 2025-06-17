@@ -1,0 +1,16 @@
+{
+  "id": "vision_and_mission",
+  "type": "SharedSlice",
+  "name": "VisionAndMission",
+  "description": "VisionAndMission",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

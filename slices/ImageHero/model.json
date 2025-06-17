@@ -1,0 +1,18 @@
+{
+  "id": "image_hero",
+  "type": "SharedSlice",
+  "name": "ImageHero",
+  "description": "ImageHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

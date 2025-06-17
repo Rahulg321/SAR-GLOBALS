@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = never;
+type HomepageDocumentDataSlicesSlice =
+  | ImageHeroSlice
+  | VisionAndMissionSlice
+  | HeadingContentSlice;
 
 /**
  * Content for Homepage documents
@@ -69,7 +72,10 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = never;
+type PageDocumentDataSlicesSlice =
+  | ImageHeroSlice
+  | VisionAndMissionSlice
+  | HeadingContentSlice;
 
 /**
  * Content for Page documents
@@ -132,6 +138,111 @@ export type PageDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = HomepageDocument | PageDocument;
 
+/**
+ * Primary content in *HeadingContent → Default → Primary*
+ */
+export interface HeadingContentSliceDefaultPrimary {
+  /**
+   * Featured Content field in *HeadingContent → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_content.default.primary.featured_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  featured_content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for HeadingContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeadingContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeadingContentSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeadingContent*
+ */
+type HeadingContentSliceVariation = HeadingContentSliceDefault;
+
+/**
+ * HeadingContent Shared Slice
+ *
+ * - **API ID**: `heading_content`
+ * - **Description**: HeadingContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeadingContentSlice = prismic.SharedSlice<
+  "heading_content",
+  HeadingContentSliceVariation
+>;
+
+/**
+ * Default variation for ImageHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageHero*
+ */
+type ImageHeroSliceVariation = ImageHeroSliceDefault;
+
+/**
+ * ImageHero Shared Slice
+ *
+ * - **API ID**: `image_hero`
+ * - **Description**: ImageHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageHeroSlice = prismic.SharedSlice<
+  "image_hero",
+  ImageHeroSliceVariation
+>;
+
+/**
+ * Default variation for VisionAndMission Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VisionAndMissionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *VisionAndMission*
+ */
+type VisionAndMissionSliceVariation = VisionAndMissionSliceDefault;
+
+/**
+ * VisionAndMission Shared Slice
+ *
+ * - **API ID**: `vision_and_mission`
+ * - **Description**: VisionAndMission
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VisionAndMissionSlice = prismic.SharedSlice<
+  "vision_and_mission",
+  VisionAndMissionSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -160,6 +271,16 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      HeadingContentSlice,
+      HeadingContentSliceDefaultPrimary,
+      HeadingContentSliceVariation,
+      HeadingContentSliceDefault,
+      ImageHeroSlice,
+      ImageHeroSliceVariation,
+      ImageHeroSliceDefault,
+      VisionAndMissionSlice,
+      VisionAndMissionSliceVariation,
+      VisionAndMissionSliceDefault,
     };
   }
 }
