@@ -4,7 +4,69 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type BlogDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Blog documents
+ */
+interface BlogDocumentData {
+  /**
+   * Slice Zone field in *Blog*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BlogDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog document from Prismic
+ *
+ * - **API ID**: `blog`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
+
 type HomepageDocumentDataSlicesSlice =
+  | FaqSliceSlice
   | WhyChooseUsSlice
   | TestimonialsSectionSlice
   | ImageHeroSlice
@@ -75,6 +137,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | FaqSliceSlice
   | WhyChooseUsSlice
   | TestimonialsSectionSlice
   | ImageHeroSlice
@@ -140,7 +203,168 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = HomepageDocument | PageDocument;
+type ServiceDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Service documents
+ */
+interface ServiceDocumentData {
+  /**
+   * Slice Zone field in *Service*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ServiceDocumentDataSlicesSlice> /**
+   * Meta Title field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: service.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: service.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Service*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Service document from Prismic
+ *
+ * - **API ID**: `service`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ServiceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ServiceDocumentData>,
+    "service",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | BlogDocument
+  | HomepageDocument
+  | PageDocument
+  | ServiceDocument;
+
+/**
+ * Item in *FaqSlice → Default → Primary → Questions*
+ */
+export interface FaqSliceSliceDefaultPrimaryQuestionsItem {
+  /**
+   * question field in *FaqSlice → Default → Primary → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_slice.default.primary.questions[].question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question: prismic.KeyTextField;
+
+  /**
+   * Answer field in *FaqSlice → Default → Primary → Questions*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_slice.default.primary.questions[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FaqSlice → Default → Primary*
+ */
+export interface FaqSliceSliceDefaultPrimary {
+  /**
+   * Heading field in *FaqSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *FaqSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_slice.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Questions field in *FaqSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_slice.default.primary.questions[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  questions: prismic.GroupField<
+    Simplify<FaqSliceSliceDefaultPrimaryQuestionsItem>
+  >;
+}
+
+/**
+ * Default variation for FaqSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FaqSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FaqSlice*
+ */
+type FaqSliceSliceVariation = FaqSliceSliceDefault;
+
+/**
+ * FaqSlice Shared Slice
+ *
+ * - **API ID**: `faq_slice`
+ * - **Description**: FaqSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSliceSlice = prismic.SharedSlice<
+  "faq_slice",
+  FaqSliceSliceVariation
+>;
 
 /**
  * Primary content in *HeadingContent → Default → Primary*
@@ -505,13 +729,24 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogDocument,
+      BlogDocumentData,
+      BlogDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      ServiceDocument,
+      ServiceDocumentData,
+      ServiceDocumentDataSlicesSlice,
       AllDocumentTypes,
+      FaqSliceSlice,
+      FaqSliceSliceDefaultPrimaryQuestionsItem,
+      FaqSliceSliceDefaultPrimary,
+      FaqSliceSliceVariation,
+      FaqSliceSliceDefault,
       HeadingContentSlice,
       HeadingContentSliceDefaultPrimary,
       HeadingContentSliceVariation,

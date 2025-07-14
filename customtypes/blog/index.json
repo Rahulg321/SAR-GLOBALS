@@ -1,36 +1,20 @@
 {
   "format": "page",
-  "id": "homepage",
-  "label": "Homepage",
-  "repeatable": false,
-  "status": true,
+  "id": "blog",
   "json": {
     "Main": {
-      "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
+      "uid": {
+        "type": "UID",
         "config": {
-          "choices": {
-            "faq_slice": {
-              "type": "SharedSlice"
-            },
-            "why_choose_us": {
-              "type": "SharedSlice"
-            },
-            "testimonials_section": {
-              "type": "SharedSlice"
-            },
-            "image_hero": {
-              "type": "SharedSlice"
-            },
-            "vision_and_mission": {
-              "type": "SharedSlice"
-            },
-            "heading_content": {
-              "type": "SharedSlice"
-            }
-          }
+          "label": "UID"
         }
+      },
+      "slices": {
+        "config": {
+          "choices": {}
+        },
+        "fieldset": "Slice Zone",
+        "type": "Slices"
       }
     },
     "SEO & Metadata": {
@@ -60,5 +44,8 @@
         "type": "Image"
       }
     }
-  }
+  },
+  "label": "Blog",
+  "repeatable": true,
+  "status": true
 }
