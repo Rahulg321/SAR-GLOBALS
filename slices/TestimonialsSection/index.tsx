@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
-import { Button } from "@/components/ui/button";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 /**
  * Props for `TestimonialsSection`.
@@ -12,7 +11,7 @@ export type TestimonialsSectionProps =
 /**
  * Component for "TestimonialsSection" Slices.
  */
-const TestimonialsSection: FC<TestimonialsSectionProps> = () => {
+const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
   return (
     <section className="w-full bg-gray-50">
       <div className="container mx-auto px-4 py-16 lg:py-24">
@@ -26,40 +25,23 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = () => {
 
               <div className="border-l-4 border-green-600 pl-6 mb-8">
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                  What Our Customers Have To Say
+                  {slice.primary.heading}
                 </h2>
               </div>
-
-              <Button
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-base font-medium"
-                size="lg"
-              >
-                Contact Us
-              </Button>
             </div>
           </div>
 
           {/* Right Column - Testimonial */}
           <div className="bg-green-600 p-8 lg:p-12 flex flex-col justify-center text-white">
-            <div className="max-w-lg">
-              <blockquote className="text-lg lg:text-xl italic leading-relaxed mb-8">
-                &quot;We have been using Sapphire&apos;s services for the past
-                10 years, and they consistently deliver on what they promise.
-                Their team is always welcoming, and their staff is highly
-                qualified and knowledgeable. They stay up-to-date with the
-                latest tax laws and changes, so we never need to train them—they
-                already know what they&apos;re doing exceptionally well. They
-                have an impressive command over their work. If you&apos;re
-                looking for an outsourcing company, I highly recommend Sapphire.
-                They even offer free trial services for new clients, and
-                I&apos;m confident that once you experience their service,
-                you&apos;ll continue working with them.&quot; Thank you!
-              </blockquote>
-
-              <div>
-                <p className="font-bold text-xl mb-1">GAGANDEEP SINGH</p>
-                <p className="text-green-100 font-medium">1 to 1 Accountants</p>
+            <div>
+              <div className="prose">
+                <PrismicRichText field={slice.primary.content} />
               </div>
+            </div>
+            <div>
+              <p className="font-bold text-xl mb-1 mt-4">
+                {slice.primary.author}
+              </p>
             </div>
           </div>
         </div>

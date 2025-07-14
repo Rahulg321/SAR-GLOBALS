@@ -1,0 +1,57 @@
+{
+  "id": "why_choose_us",
+  "type": "SharedSlice",
+  "name": "WhyChooseUs",
+  "description": "WhyChooseUs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "reasons": {
+          "type": "Group",
+          "config": {
+            "label": "Reasons",
+            "repeat": true,
+            "fields": {
+              "reason_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Reason Name",
+                  "placeholder": ""
+                }
+              },
+              "reason_explanation": {
+                "type": "Text",
+                "config": {
+                  "label": "Reason Explanation",
+                  "placeholder": ""
+                }
+              },
+              "reason_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Reason Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -15,23 +15,7 @@ export default function Footer() {
     <footer className="bg-slate-800 text-white">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-          {/* Company Info Section */}
           <div className="space-y-6">
-            <div className="bg-white rounded-lg p-4 inline-block">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-green-600 rounded transform rotate-45 flex items-center justify-center">
-                  <div className="w-6 h-6 bg-blue-600 rounded transform -rotate-45"></div>
-                </div>
-                <div>
-                  <h3 className="text-blue-900 font-bold text-xl">SAPPHIRE</h3>
-                  <p className="text-gray-600 text-xs">INFO SOLUTIONS</p>
-                  <p className="text-green-600 text-xs italic">
-                    SmartSourcing, beyond Outsourcing
-                  </p>
-                </div>
-              </div>
-            </div>
-
             <p className="text-sm leading-relaxed max-w-md">
               We are an accounts outsourcing company founded in year 2004 to
               provide quality professional accounting & bookkeeping outsourcing
@@ -73,7 +57,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact Info Section */}
           <div className="space-y-6">
             <div>
               <h3 className="text-xl font-semibold mb-2">Contact Info</h3>

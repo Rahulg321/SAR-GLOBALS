@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | WhyChooseUsSlice
   | TestimonialsSectionSlice
   | ImageHeroSlice
   | VisionAndMissionSlice
@@ -74,6 +75,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | WhyChooseUsSlice
   | TestimonialsSectionSlice
   | ImageHeroSlice
   | VisionAndMissionSlice
@@ -186,6 +188,41 @@ export type HeadingContentSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ImageHero → Default → Primary*
+ */
+export interface ImageHeroSliceDefaultPrimary {
+  /**
+   * Background Image field in *ImageHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_hero.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *ImageHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_hero.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *ImageHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_hero.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+}
+
+/**
  * Default variation for ImageHero Slice
  *
  * - **API ID**: `default`
@@ -194,7 +231,7 @@ export type HeadingContentSlice = prismic.SharedSlice<
  */
 export type ImageHeroSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ImageHeroSliceDefaultPrimary>,
   never
 >;
 
@@ -216,6 +253,41 @@ export type ImageHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TestimonialsSection → Default → Primary*
+ */
+export interface TestimonialsSectionSliceDefaultPrimary {
+  /**
+   * Heading field in *TestimonialsSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_section.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Content field in *TestimonialsSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_section.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Author field in *TestimonialsSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_section.default.primary.author
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  author: prismic.KeyTextField;
+}
+
+/**
  * Default variation for TestimonialsSection Slice
  *
  * - **API ID**: `default`
@@ -224,7 +296,7 @@ export type ImageHeroSlice = prismic.SharedSlice<
  */
 export type TestimonialsSectionSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<TestimonialsSectionSliceDefaultPrimary>,
   never
 >;
 
@@ -246,6 +318,51 @@ export type TestimonialsSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *VisionAndMission → Default → Primary*
+ */
+export interface VisionAndMissionSliceDefaultPrimary {
+  /**
+   * Vision Heading field in *VisionAndMission → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision_and_mission.default.primary.vision_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  vision_heading: prismic.KeyTextField;
+
+  /**
+   * Vision Text field in *VisionAndMission → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision_and_mission.default.primary.vision_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  vision_text: prismic.KeyTextField;
+
+  /**
+   * Mission Heading field in *VisionAndMission → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision_and_mission.default.primary.mission_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mission_heading: prismic.KeyTextField;
+
+  /**
+   * Mission Text field in *VisionAndMission → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision_and_mission.default.primary.mission_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mission_text: prismic.KeyTextField;
+}
+
+/**
  * Default variation for VisionAndMission Slice
  *
  * - **API ID**: `default`
@@ -254,7 +371,7 @@ export type TestimonialsSectionSlice = prismic.SharedSlice<
  */
 export type VisionAndMissionSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<VisionAndMissionSliceDefaultPrimary>,
   never
 >;
 
@@ -273,6 +390,98 @@ type VisionAndMissionSliceVariation = VisionAndMissionSliceDefault;
 export type VisionAndMissionSlice = prismic.SharedSlice<
   "vision_and_mission",
   VisionAndMissionSliceVariation
+>;
+
+/**
+ * Item in *WhyChooseUs → Default → Primary → Reasons*
+ */
+export interface WhyChooseUsSliceDefaultPrimaryReasonsItem {
+  /**
+   * Reason Name field in *WhyChooseUs → Default → Primary → Reasons*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: why_choose_us.default.primary.reasons[].reason_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  reason_name: prismic.KeyTextField;
+
+  /**
+   * Reason Explanation field in *WhyChooseUs → Default → Primary → Reasons*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: why_choose_us.default.primary.reasons[].reason_explanation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  reason_explanation: prismic.KeyTextField;
+
+  /**
+   * Reason Image field in *WhyChooseUs → Default → Primary → Reasons*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: why_choose_us.default.primary.reasons[].reason_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  reason_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *WhyChooseUs → Default → Primary*
+ */
+export interface WhyChooseUsSliceDefaultPrimary {
+  /**
+   * Heading field in *WhyChooseUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: why_choose_us.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Reasons field in *WhyChooseUs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: why_choose_us.default.primary.reasons[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  reasons: prismic.GroupField<
+    Simplify<WhyChooseUsSliceDefaultPrimaryReasonsItem>
+  >;
+}
+
+/**
+ * Default variation for WhyChooseUs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WhyChooseUsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WhyChooseUsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *WhyChooseUs*
+ */
+type WhyChooseUsSliceVariation = WhyChooseUsSliceDefault;
+
+/**
+ * WhyChooseUs Shared Slice
+ *
+ * - **API ID**: `why_choose_us`
+ * - **Description**: WhyChooseUs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WhyChooseUsSlice = prismic.SharedSlice<
+  "why_choose_us",
+  WhyChooseUsSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -308,14 +517,22 @@ declare module "@prismicio/client" {
       HeadingContentSliceVariation,
       HeadingContentSliceDefault,
       ImageHeroSlice,
+      ImageHeroSliceDefaultPrimary,
       ImageHeroSliceVariation,
       ImageHeroSliceDefault,
       TestimonialsSectionSlice,
+      TestimonialsSectionSliceDefaultPrimary,
       TestimonialsSectionSliceVariation,
       TestimonialsSectionSliceDefault,
       VisionAndMissionSlice,
+      VisionAndMissionSliceDefaultPrimary,
       VisionAndMissionSliceVariation,
       VisionAndMissionSliceDefault,
+      WhyChooseUsSlice,
+      WhyChooseUsSliceDefaultPrimaryReasonsItem,
+      WhyChooseUsSliceDefaultPrimary,
+      WhyChooseUsSliceVariation,
+      WhyChooseUsSliceDefault,
     };
   }
 }

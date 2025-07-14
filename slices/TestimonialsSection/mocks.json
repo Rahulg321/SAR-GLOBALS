@@ -2,7 +2,29 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "appropriate",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Commodo dolore amet nulla duis ut non tempor proident ex labore dolore cupidatat nostrud. Sit esse id aliqua irure cupidatat qui anim aliqua irure laboris irure consequat nisi elit exercitation. Velit nisi aliqua qui ex voluptate."
+						}
+					}
+				]
+			},
+			"author": {
+				"__TYPE__": "FieldContent",
+				"value": "success",
+				"type": "Text"
+			}
+		},
 		"items": []
 	}
 ]

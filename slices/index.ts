@@ -7,4 +7,5 @@ export const components = {
   image_hero: dynamic(() => import("./ImageHero")),
   testimonials_section: dynamic(() => import("./TestimonialsSection")),
   vision_and_mission: dynamic(() => import("./VisionAndMission")),
+  why_choose_us: dynamic(() => import("./WhyChooseUs")),
 };

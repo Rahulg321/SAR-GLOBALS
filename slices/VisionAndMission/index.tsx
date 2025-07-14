@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Content } from "@prismicio/client";
+import { Content, KeyTextField } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { Award, LucideIcon, Target } from "lucide-react";
 
@@ -11,7 +11,7 @@ export type VisionAndMissionProps =
 
 type InfoCardProps = {
   icon: LucideIcon;
-  title: string;
+  title: KeyTextField;
   children: React.ReactNode;
   variant: "light" | "dark";
 };
@@ -60,21 +60,24 @@ const InfoCard = ({ icon: Icon, title, children, variant }: InfoCardProps) => {
 /**
  * Component for "VisionAndMission" Slices.
  */
-const VisionAndMission: FC<VisionAndMissionProps> = () => {
+const VisionAndMission: FC<VisionAndMissionProps> = ({ slice }) => {
   return (
     <section className="w-full">
       <div className="grid md:grid-cols-2 min-h-[400px]">
-        <InfoCard title="Our Vision" icon={Target} variant="light">
-          To empower accountancy practices through SmartSourcing, delivering
-          automation-driven, professional services that foster growth,
-          efficiency, and profitability beyond traditional outsourcing.
+        <InfoCard
+          title={slice.primary.vision_heading}
+          icon={Target}
+          variant="light"
+        >
+          {slice.primary.vision_text}
         </InfoCard>
 
-        <InfoCard title="Our Mission" icon={Award} variant="dark">
-          To provide accountancy firms with innovative, technology-driven
-          outsourcing solutions. We are dedicated to enhancing our clients&apos;
-          operational efficiency and value by combining expert talent with
-          cutting-edge automation and a commitment to partnership.
+        <InfoCard
+          title={slice.primary.mission_heading}
+          icon={Award}
+          variant="dark"
+        >
+          {slice.primary.mission_text}
         </InfoCard>
       </div>
     </section>

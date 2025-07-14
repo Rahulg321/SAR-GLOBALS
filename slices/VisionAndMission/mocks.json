@@ -2,7 +2,28 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"vision_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "during",
+				"type": "Text"
+			},
+			"vision_text": {
+				"__TYPE__": "FieldContent",
+				"value": "original",
+				"type": "Text"
+			},
+			"mission_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "noted",
+				"type": "Text"
+			},
+			"mission_text": {
+				"__TYPE__": "FieldContent",
+				"value": "seen",
+				"type": "Text"
+			}
+		},
 		"items": []
 	}
 ]

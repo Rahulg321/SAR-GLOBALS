@@ -10,7 +10,38 @@
       "docURL": "...",
       "version": "initial",
       "description": "Default",
-      "imageUrl": ""
+      "imageUrl": "",
+      "primary": {
+        "vision_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Vision Heading",
+            "placeholder": ""
+          }
+        },
+        "vision_text": {
+          "type": "Text",
+          "config": {
+            "label": "Vision Text",
+            "placeholder": ""
+          }
+        },
+        "mission_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Mission Heading",
+            "placeholder": ""
+          }
+        },
+        "mission_text": {
+          "type": "Text",
+          "config": {
+            "label": "Mission Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
