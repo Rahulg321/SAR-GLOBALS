@@ -23,6 +23,26 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "contentWithMutedBackground",
+      "name": "Content With Muted Background",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "featured_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Featured Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

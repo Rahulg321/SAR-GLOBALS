@@ -88,6 +88,7 @@ const TopBar = () => {
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/blog", label: "Blog" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ];

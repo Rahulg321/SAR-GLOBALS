@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import {
   Accordion,
@@ -28,7 +28,9 @@ const FaqSlice: FC<FaqSliceProps> = ({ slice }) => {
             <h2 className="text-3xl font-semibold mb-8">
               {slice.primary.heading}
             </h2>
-            <p className="text-xl">{slice.primary.tagline}</p>
+            {isFilled.keyText(slice.primary.tagline) && (
+              <p className="text-xl">{slice.primary.tagline}</p>
+            )}
           </div>
 
           <div>

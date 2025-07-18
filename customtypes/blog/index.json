@@ -1,6 +1,9 @@
 {
   "format": "page",
   "id": "blog",
+  "label": "Blog",
+  "repeatable": true,
+  "status": true,
   "json": {
     "Main": {
       "uid": {
@@ -9,12 +12,48 @@
           "label": "UID"
         }
       },
-      "slices": {
+      "featured_image": {
+        "type": "Image",
         "config": {
-          "choices": {}
-        },
+          "label": "Featured Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "author": {
+        "type": "Text",
+        "config": {
+          "label": "Author",
+          "placeholder": ""
+        }
+      },
+      "excerpt": {
+        "type": "Text",
+        "config": {
+          "label": "Excerpt",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
         "fieldset": "Slice Zone",
-        "type": "Slices"
+        "config": {
+          "choices": {
+            "faq_slice": {
+              "type": "SharedSlice"
+            },
+            "heading_content": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "SEO & Metadata": {
@@ -44,8 +83,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "Blog",
-  "repeatable": true,
-  "status": true
+  }
 }

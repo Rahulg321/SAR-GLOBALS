@@ -16,5 +16,28 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "contentWithMutedBackground",
+		"primary": {
+			"featured_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consectetur irure cillum in eiusmod deserunt duis eu dolore. Mollit eiusmod exercitation et eu nisi esse. Dolor nulla est est sint ea enim id nisi non officia proident aliquip aliquip ex ullamco."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

@@ -3,9 +3,13 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  blog_index: dynamic(() => import("./BlogIndex")),
+  contact_section: dynamic(() => import("./ContactSection")),
   faq_slice: dynamic(() => import("./FaqSlice")),
   heading_content: dynamic(() => import("./HeadingContent")),
   image_hero: dynamic(() => import("./ImageHero")),
+  services_index: dynamic(() => import("./ServicesIndex")),
+  team_index: dynamic(() => import("./TeamIndex")),
   testimonials_section: dynamic(() => import("./TestimonialsSection")),
   vision_and_mission: dynamic(() => import("./VisionAndMission")),
   why_choose_us: dynamic(() => import("./WhyChooseUs")),

@@ -1,6 +1,9 @@
 {
   "format": "page",
   "id": "service",
+  "label": "Service",
+  "repeatable": true,
+  "status": true,
   "json": {
     "Main": {
       "uid": {
@@ -9,12 +12,34 @@
           "label": "UID"
         }
       },
+      "service_name": {
+        "type": "Text",
+        "config": {
+          "label": "Service Name",
+          "placeholder": ""
+        }
+      },
+      "featured_image": {
+        "type": "Image",
+        "config": {
+          "label": "Featured Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "service_excerpt": {
+        "type": "Text",
+        "config": {
+          "label": "Service Excerpt",
+          "placeholder": ""
+        }
+      },
       "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
         "config": {
           "choices": {}
-        },
-        "fieldset": "Slice Zone",
-        "type": "Slices"
+        }
       }
     },
     "SEO & Metadata": {
@@ -44,8 +69,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "Service",
-  "repeatable": true,
-  "status": true
+  }
 }
