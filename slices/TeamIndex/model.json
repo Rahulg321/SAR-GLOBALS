@@ -10,7 +10,71 @@
       "docURL": "...",
       "version": "initial",
       "description": "Default",
-      "imageUrl": ""
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "tag": {
+          "type": "Text",
+          "config": {
+            "label": "Tag",
+            "placeholder": ""
+          }
+        },
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline",
+            "placeholder": ""
+          }
+        },
+        "members": {
+          "type": "Group",
+          "config": {
+            "label": "Members",
+            "repeat": true,
+            "fields": {
+              "member_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Member Name",
+                  "placeholder": ""
+                }
+              },
+              "member_designation": {
+                "type": "Text",
+                "config": {
+                  "label": "Member Designation",
+                  "placeholder": ""
+                }
+              },
+              "member_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Member Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "member_description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Member Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

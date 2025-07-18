@@ -6,14 +6,8 @@ import BlogCardSkeleton from "@/components/skeletons/blog-card-skeleton";
 import BlogCard from "@/components/blog-card";
 import AnimatedHeading from "@/components/animated-heading";
 
-/**
- * Props for `BlogIndex`.
- */
 export type BlogIndexProps = SliceComponentProps<Content.BlogIndexSlice>;
 
-/**
- * Component for "BlogIndex" Slices.
- */
 const BlogIndex: FC<BlogIndexProps> = ({ slice }) => {
   return (
     <section
@@ -23,7 +17,7 @@ const BlogIndex: FC<BlogIndexProps> = ({ slice }) => {
     >
       <div>
         {isFilled.keyText(slice.primary.heading) && (
-          <AnimatedHeading heading={slice.primary.heading} />
+          <h2>{slice.primary.heading}</h2>
         )}
       </div>
       <div className="mt-10">

@@ -34,7 +34,7 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
           {/* Right Column - Testimonial */}
           <div className="bg-green-600 p-8 lg:p-12 flex flex-col justify-center text-white">
             <div>
-              <div className="prose">
+              <div className="prose text-white">
                 <PrismicRichText field={slice.primary.content} />
               </div>
             </div>

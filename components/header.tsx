@@ -88,6 +88,7 @@ const TopBar = () => {
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/our-team", label: "Team" },
   { href: "/blog", label: "Blog" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
@@ -140,13 +141,6 @@ const MobileNav = ({
           <div className="flex flex-col gap-3">
             <Button
               asChild
-              variant="outline"
-              className="w-full bg-white text-[#0B3558] border-[#0B3558] hover:bg-[#0B3558] hover:text-white"
-            >
-              <Link href="/client-portal">Client Portal</Link>
-            </Button>
-            <Button
-              asChild
               className="w-full bg-[#0B3558] text-white hover:bg-[#0B3558]/90"
             >
               <Link href="/book-meeting">Book A Meeting</Link>
@@ -186,15 +180,7 @@ const MainNav = () => {
               ))}
             </nav>
 
-            {/* Buttons remain the same */}
             <div className="flex items-center space-x-2 pl-4">
-              <Button
-                asChild
-                variant="outline"
-                className="bg-white text-[#0B3558] border-[#0B3558] hover:bg-[#0B3558] hover:text-white transition-colors"
-              >
-                <Link href="/client-portal">Client Portal</Link>
-              </Button>
               <Button
                 asChild
                 className="bg-[#0B3558] text-white hover:bg-[#0B3558]/90"

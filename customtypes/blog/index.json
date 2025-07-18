@@ -46,6 +46,33 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "image_hero": {
+              "type": "SharedSlice"
+            },
+            "why_choose_us": {
+              "type": "SharedSlice"
+            },
+            "testimonials_section": {
+              "type": "SharedSlice"
+            },
+            "team_index": {
+              "type": "SharedSlice"
+            },
+            "vision_and_mission": {
+              "type": "SharedSlice"
+            },
+            "blog_index": {
+              "type": "SharedSlice"
+            },
+            "contact_section": {
+              "type": "SharedSlice"
+            },
+            "content_with_buttons": {
+              "type": "SharedSlice"
+            },
+            "services_index": {
+              "type": "SharedSlice"
+            },
             "faq_slice": {
               "type": "SharedSlice"
             },

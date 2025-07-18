@@ -4,7 +4,18 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type BlogDocumentDataSlicesSlice = FaqSliceSlice | HeadingContentSlice;
+type BlogDocumentDataSlicesSlice =
+  | ImageHeroSlice
+  | WhyChooseUsSlice
+  | TestimonialsSectionSlice
+  | TeamIndexSlice
+  | VisionAndMissionSlice
+  | BlogIndexSlice
+  | ContactSectionSlice
+  | ContentWithButtonsSlice
+  | ServicesIndexSlice
+  | FaqSliceSlice
+  | HeadingContentSlice;
 
 /**
  * Content for Blog documents
@@ -181,6 +192,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ContentWithButtonsSlice
   | ContactSectionSlice
   | TeamIndexSlice
   | ServicesIndexSlice
@@ -251,7 +263,18 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ServiceDocumentDataSlicesSlice = never;
+type ServiceDocumentDataSlicesSlice =
+  | ImageHeroSlice
+  | TestimonialsSectionSlice
+  | TeamIndexSlice
+  | VisionAndMissionSlice
+  | WhyChooseUsSlice
+  | ContactSectionSlice
+  | BlogIndexSlice
+  | HeadingContentSlice
+  | FaqSliceSlice
+  | ContentWithButtonsSlice
+  | ServicesIndexSlice;
 
 /**
  * Content for Service documents
@@ -428,6 +451,61 @@ type ContactSectionSliceVariation = ContactSectionSliceDefault;
 export type ContactSectionSlice = prismic.SharedSlice<
   "contact_section",
   ContactSectionSliceVariation
+>;
+
+/**
+ * Primary content in *ContentWithButtons → Default → Primary*
+ */
+export interface ContentWithButtonsSliceDefaultPrimary {
+  /**
+   * Heading field in *ContentWithButtons → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_with_buttons.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *ContentWithButtons → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_with_buttons.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ContentWithButtons Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentWithButtonsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContentWithButtonsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContentWithButtons*
+ */
+type ContentWithButtonsSliceVariation = ContentWithButtonsSliceDefault;
+
+/**
+ * ContentWithButtons Shared Slice
+ *
+ * - **API ID**: `content_with_buttons`
+ * - **Description**: ContentWithButtons
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentWithButtonsSlice = prismic.SharedSlice<
+  "content_with_buttons",
+  ContentWithButtonsSliceVariation
 >;
 
 /**
@@ -760,6 +838,98 @@ export type ServicesIndexSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *TeamIndex → Default → Primary → Members*
+ */
+export interface TeamIndexSliceDefaultPrimaryMembersItem {
+  /**
+   * Member Name field in *TeamIndex → Default → Primary → Members*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_index.default.primary.members[].member_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  member_name: prismic.KeyTextField;
+
+  /**
+   * Member Designation field in *TeamIndex → Default → Primary → Members*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_index.default.primary.members[].member_designation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  member_designation: prismic.KeyTextField;
+
+  /**
+   * Member Image field in *TeamIndex → Default → Primary → Members*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_index.default.primary.members[].member_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  member_image: prismic.ImageField<never>;
+
+  /**
+   * Member Description field in *TeamIndex → Default → Primary → Members*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_index.default.primary.members[].member_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  member_description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *TeamIndex → Default → Primary*
+ */
+export interface TeamIndexSliceDefaultPrimary {
+  /**
+   * Heading field in *TeamIndex → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_index.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tag field in *TeamIndex → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_index.default.primary.tag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *TeamIndex → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_index.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Members field in *TeamIndex → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_index.default.primary.members[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  members: prismic.GroupField<
+    Simplify<TeamIndexSliceDefaultPrimaryMembersItem>
+  >;
+}
+
+/**
  * Default variation for TeamIndex Slice
  *
  * - **API ID**: `default`
@@ -768,7 +938,7 @@ export type ServicesIndexSlice = prismic.SharedSlice<
  */
 export type TeamIndexSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<TeamIndexSliceDefaultPrimary>,
   never
 >;
 
@@ -1062,6 +1232,10 @@ declare module "@prismicio/client" {
       ContactSectionSlice,
       ContactSectionSliceVariation,
       ContactSectionSliceDefault,
+      ContentWithButtonsSlice,
+      ContentWithButtonsSliceDefaultPrimary,
+      ContentWithButtonsSliceVariation,
+      ContentWithButtonsSliceDefault,
       FaqSliceSlice,
       FaqSliceSliceDefaultPrimaryQuestionsItem,
       FaqSliceSliceDefaultPrimary,
@@ -1084,6 +1258,8 @@ declare module "@prismicio/client" {
       ServicesIndexSliceVariation,
       ServicesIndexSliceDefault,
       TeamIndexSlice,
+      TeamIndexSliceDefaultPrimaryMembersItem,
+      TeamIndexSliceDefaultPrimary,
       TeamIndexSliceVariation,
       TeamIndexSliceDefault,
       TestimonialsSectionSlice,
