@@ -49,7 +49,6 @@ export default ServicesIndex;
 async function GetServices() {
   const client = createClient();
   const services = await client.getAllByType("service");
-  console.log(services);
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {services.map((service) => (

@@ -1,0 +1,18 @@
+{
+  "id": "image_background",
+  "type": "SharedSlice",
+  "name": "ImageBackground",
+  "description": "ImageBackground",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

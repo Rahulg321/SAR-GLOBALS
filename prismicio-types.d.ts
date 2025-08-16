@@ -121,6 +121,14 @@ export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
 type HomepageDocumentDataSlicesSlice =
+  | ImageBackgroundSlice
+  | CallToActionSlice
+  | FeatureImageCarouselSlice
+  | TeamIndexSlice
+  | ContactSectionSlice
+  | BlogIndexSlice
+  | ContentWithButtonsSlice
+  | ServicesIndexSlice
   | FaqSliceSlice
   | WhyChooseUsSlice
   | TestimonialsSectionSlice
@@ -192,6 +200,9 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ImageBackgroundSlice
+  | CallToActionSlice
+  | FeatureImageCarouselSlice
   | ContentWithButtonsSlice
   | ContactSectionSlice
   | TeamIndexSlice
@@ -424,6 +435,36 @@ export type BlogIndexSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for CallToAction Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *CallToAction*
+ */
+type CallToActionSliceVariation = CallToActionSliceDefault;
+
+/**
+ * CallToAction Shared Slice
+ *
+ * - **API ID**: `call_to_action`
+ * - **Description**: CallToAction
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSlice = prismic.SharedSlice<
+  "call_to_action",
+  CallToActionSliceVariation
+>;
+
+/**
  * Default variation for ContactSection Slice
  *
  * - **API ID**: `default`
@@ -601,6 +642,36 @@ export type FaqSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for FeatureImageCarousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureImageCarouselSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *FeatureImageCarousel*
+ */
+type FeatureImageCarouselSliceVariation = FeatureImageCarouselSliceDefault;
+
+/**
+ * FeatureImageCarousel Shared Slice
+ *
+ * - **API ID**: `feature_image_carousel`
+ * - **Description**: FeatureImageCarousel
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureImageCarouselSlice = prismic.SharedSlice<
+  "feature_image_carousel",
+  FeatureImageCarouselSliceVariation
+>;
+
+/**
  * Primary content in *HeadingContent → Default → Primary*
  */
 export interface HeadingContentSliceDefaultPrimary {
@@ -674,6 +745,36 @@ type HeadingContentSliceVariation =
 export type HeadingContentSlice = prismic.SharedSlice<
   "heading_content",
   HeadingContentSliceVariation
+>;
+
+/**
+ * Default variation for ImageBackground Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageBackgroundSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageBackground*
+ */
+type ImageBackgroundSliceVariation = ImageBackgroundSliceDefault;
+
+/**
+ * ImageBackground Shared Slice
+ *
+ * - **API ID**: `image_background`
+ * - **Description**: ImageBackground
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageBackgroundSlice = prismic.SharedSlice<
+  "image_background",
+  ImageBackgroundSliceVariation
 >;
 
 /**
@@ -1229,6 +1330,9 @@ declare module "@prismicio/client" {
       BlogIndexSliceDefaultPrimary,
       BlogIndexSliceVariation,
       BlogIndexSliceDefault,
+      CallToActionSlice,
+      CallToActionSliceVariation,
+      CallToActionSliceDefault,
       ContactSectionSlice,
       ContactSectionSliceVariation,
       ContactSectionSliceDefault,
@@ -1241,12 +1345,18 @@ declare module "@prismicio/client" {
       FaqSliceSliceDefaultPrimary,
       FaqSliceSliceVariation,
       FaqSliceSliceDefault,
+      FeatureImageCarouselSlice,
+      FeatureImageCarouselSliceVariation,
+      FeatureImageCarouselSliceDefault,
       HeadingContentSlice,
       HeadingContentSliceDefaultPrimary,
       HeadingContentSliceContentWithMutedBackgroundPrimary,
       HeadingContentSliceVariation,
       HeadingContentSliceDefault,
       HeadingContentSliceContentWithMutedBackground,
+      ImageBackgroundSlice,
+      ImageBackgroundSliceVariation,
+      ImageBackgroundSliceDefault,
       ImageHeroSlice,
       ImageHeroSliceDefaultPrimary,
       ImageHeroSliceImageBackgroundWithMarginPrimary,

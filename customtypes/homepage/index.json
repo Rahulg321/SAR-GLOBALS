@@ -11,6 +11,30 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "image_background": {
+              "type": "SharedSlice"
+            },
+            "call_to_action": {
+              "type": "SharedSlice"
+            },
+            "feature_image_carousel": {
+              "type": "SharedSlice"
+            },
+            "team_index": {
+              "type": "SharedSlice"
+            },
+            "contact_section": {
+              "type": "SharedSlice"
+            },
+            "blog_index": {
+              "type": "SharedSlice"
+            },
+            "content_with_buttons": {
+              "type": "SharedSlice"
+            },
+            "services_index": {
+              "type": "SharedSlice"
+            },
             "faq_slice": {
               "type": "SharedSlice"
             },

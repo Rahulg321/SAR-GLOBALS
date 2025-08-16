@@ -1,0 +1,18 @@
+{
+  "id": "feature_image_carousel",
+  "type": "SharedSlice",
+  "name": "FeatureImageCarousel",
+  "description": "FeatureImageCarousel",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}
