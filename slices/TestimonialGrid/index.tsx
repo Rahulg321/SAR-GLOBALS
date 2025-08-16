@@ -29,9 +29,9 @@ const TestimonialGrid: FC<TestimonialGridProps> = ({ slice }) => {
         </div>
 
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10">
-          {slice.primary.testimonials.map((testimonial) => (
+          {slice.primary.testimonials.map((testimonial, index) => (
             <Testimonial
-              key={testimonial.name}
+              key={index}
               name={testimonial.name}
               role={testimonial.role}
               content={testimonial.content}

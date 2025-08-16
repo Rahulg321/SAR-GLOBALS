@@ -36,9 +36,9 @@ const FeaturesGrid: FC<FeaturesGridProps> = ({ slice }) => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {slice.primary.features.map((e) => {
+              {slice.primary.features.map((e, index) => {
                 return (
-                  <div className="flex flex-col gap-2" key={e.feature_heading}>
+                  <div className="flex flex-col gap-2" key={index}>
                     <div className="bg-muted rounded-md aspect-video mb-2">
                       <PrismicNextImage field={e.feature_image} />
                     </div>

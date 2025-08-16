@@ -1,8 +1,8 @@
 {
-  "id": "feature_image_carousel",
+  "id": "accounting_hero",
   "type": "SharedSlice",
-  "name": "FeatureImageCarousel",
-  "description": "FeatureImageCarousel",
+  "name": "AccountingHero",
+  "description": "AccountingHero",
   "variations": [
     {
       "id": "default",
@@ -33,21 +33,12 @@
             "placeholder": ""
           }
         },
-        "carousel_images": {
-          "type": "Group",
+        "featured_image": {
+          "type": "Image",
           "config": {
-            "label": "Carousel Images",
-            "repeat": true,
-            "fields": {
-              "item_image": {
-                "type": "Image",
-                "config": {
-                  "label": "Item Image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              }
-            }
+            "label": "Featured Image",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

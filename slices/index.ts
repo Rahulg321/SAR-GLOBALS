@@ -3,7 +3,9 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  accounting_hero: dynamic(() => import("./AccountingHero")),
   blog_index: dynamic(() => import("./BlogIndex")),
+  business_services: dynamic(() => import("./BusinessServices")),
   call_to_action: dynamic(() => import("./CallToAction")),
   contact_section: dynamic(() => import("./ContactSection")),
   content_with_buttons: dynamic(() => import("./ContentWithButtons")),
@@ -14,6 +16,7 @@ export const components = {
   image_background: dynamic(() => import("./ImageBackground")),
   image_content: dynamic(() => import("./ImageContent")),
   image_hero: dynamic(() => import("./ImageHero")),
+  promise_features: dynamic(() => import("./PromiseFeatures")),
   services_index: dynamic(() => import("./ServicesIndex")),
   team_index: dynamic(() => import("./TeamIndex")),
   testimonial_grid: dynamic(() => import("./TestimonialGrid")),

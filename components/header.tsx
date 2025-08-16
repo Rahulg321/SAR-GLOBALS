@@ -44,40 +44,6 @@ const TopBar = () => {
               <span>info@sapphireinfo.net</span>
             </a>
           </div>
-          <div className="flex items-center space-x-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-green-400 transition-colors"
-            >
-              <Facebook className="h-4 w-4" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-green-400 transition-colors"
-            >
-              <Instagram className="h-4 w-4" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-green-400 transition-colors"
-            >
-              <Linkedin className="h-4 w-4" />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-green-400 transition-colors"
-            >
-              <Youtube className="h-4 w-4" />
-            </a>
-          </div>
         </div>
       </div>
     </div>

@@ -121,6 +121,9 @@ export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
 type HomepageDocumentDataSlicesSlice =
+  | PromiseFeaturesSlice
+  | AccountingHeroSlice
+  | BusinessServicesSlice
   | TestimonialGridSlice
   | FeaturesGridSlice
   | ImageContentSlice
@@ -203,6 +206,8 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | AccountingHeroSlice
+  | BusinessServicesSlice
   | TestimonialGridSlice
   | FeaturesGridSlice
   | ImageContentSlice
@@ -396,6 +401,81 @@ export type AllDocumentTypes =
   | ServiceDocument;
 
 /**
+ * Primary content in *AccountingHero → Default → Primary*
+ */
+export interface AccountingHeroSliceDefaultPrimary {
+  /**
+   * Heading field in *AccountingHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accounting_hero.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *AccountingHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accounting_hero.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Badge field in *AccountingHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accounting_hero.default.primary.badge
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  badge: prismic.KeyTextField;
+
+  /**
+   * Featured Image field in *AccountingHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accounting_hero.default.primary.featured_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for AccountingHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AccountingHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AccountingHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AccountingHero*
+ */
+type AccountingHeroSliceVariation = AccountingHeroSliceDefault;
+
+/**
+ * AccountingHero Shared Slice
+ *
+ * - **API ID**: `accounting_hero`
+ * - **Description**: AccountingHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AccountingHeroSlice = prismic.SharedSlice<
+  "accounting_hero",
+  AccountingHeroSliceVariation
+>;
+
+/**
  * Primary content in *BlogIndex → Default → Primary*
  */
 export interface BlogIndexSliceDefaultPrimary {
@@ -438,6 +518,36 @@ type BlogIndexSliceVariation = BlogIndexSliceDefault;
 export type BlogIndexSlice = prismic.SharedSlice<
   "blog_index",
   BlogIndexSliceVariation
+>;
+
+/**
+ * Default variation for BusinessServices Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BusinessServicesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *BusinessServices*
+ */
+type BusinessServicesSliceVariation = BusinessServicesSliceDefault;
+
+/**
+ * BusinessServices Shared Slice
+ *
+ * - **API ID**: `business_services`
+ * - **Description**: BusinessServices
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BusinessServicesSlice = prismic.SharedSlice<
+  "business_services",
+  BusinessServicesSliceVariation
 >;
 
 /**
@@ -683,6 +793,68 @@ export type FaqSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *FeatureImageCarousel → Default → Primary → Carousel Images*
+ */
+export interface FeatureImageCarouselSliceDefaultPrimaryCarouselImagesItem {
+  /**
+   * Item Image field in *FeatureImageCarousel → Default → Primary → Carousel Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_image_carousel.default.primary.carousel_images[].item_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  item_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *FeatureImageCarousel → Default → Primary*
+ */
+export interface FeatureImageCarouselSliceDefaultPrimary {
+  /**
+   * Heading field in *FeatureImageCarousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_image_carousel.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *FeatureImageCarousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_image_carousel.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Badge field in *FeatureImageCarousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_image_carousel.default.primary.badge
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  badge: prismic.KeyTextField;
+
+  /**
+   * Carousel Images field in *FeatureImageCarousel → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_image_carousel.default.primary.carousel_images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  carousel_images: prismic.GroupField<
+    Simplify<FeatureImageCarouselSliceDefaultPrimaryCarouselImagesItem>
+  >;
+}
+
+/**
  * Default variation for FeatureImageCarousel Slice
  *
  * - **API ID**: `default`
@@ -691,7 +863,7 @@ export type FaqSliceSlice = prismic.SharedSlice<
  */
 export type FeatureImageCarouselSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<FeatureImageCarouselSliceDefaultPrimary>,
   never
 >;
 
@@ -1154,6 +1326,98 @@ type ImageHeroSliceVariation =
 export type ImageHeroSlice = prismic.SharedSlice<
   "image_hero",
   ImageHeroSliceVariation
+>;
+
+/**
+ * Item in *PromiseFeatures → Default → Primary → Promises*
+ */
+export interface PromiseFeaturesSliceDefaultPrimaryPromisesItem {
+  /**
+   * Heading field in *PromiseFeatures → Default → Primary → Promises*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promise_features.default.primary.promises[].heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *PromiseFeatures → Default → Primary → Promises*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promise_features.default.primary.promises[].tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *PromiseFeatures → Default → Primary*
+ */
+export interface PromiseFeaturesSliceDefaultPrimary {
+  /**
+   * Heading field in *PromiseFeatures → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promise_features.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *PromiseFeatures → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promise_features.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Promises field in *PromiseFeatures → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: promise_features.default.primary.promises[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  promises: prismic.GroupField<
+    Simplify<PromiseFeaturesSliceDefaultPrimaryPromisesItem>
+  >;
+}
+
+/**
+ * Default variation for PromiseFeatures Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PromiseFeaturesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PromiseFeaturesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PromiseFeatures*
+ */
+type PromiseFeaturesSliceVariation = PromiseFeaturesSliceDefault;
+
+/**
+ * PromiseFeatures Shared Slice
+ *
+ * - **API ID**: `promise_features`
+ * - **Description**: PromiseFeatures
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PromiseFeaturesSlice = prismic.SharedSlice<
+  "promise_features",
+  PromiseFeaturesSliceVariation
 >;
 
 /**
@@ -1701,10 +1965,17 @@ declare module "@prismicio/client" {
       ServiceDocumentData,
       ServiceDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AccountingHeroSlice,
+      AccountingHeroSliceDefaultPrimary,
+      AccountingHeroSliceVariation,
+      AccountingHeroSliceDefault,
       BlogIndexSlice,
       BlogIndexSliceDefaultPrimary,
       BlogIndexSliceVariation,
       BlogIndexSliceDefault,
+      BusinessServicesSlice,
+      BusinessServicesSliceVariation,
+      BusinessServicesSliceDefault,
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
       CallToActionSliceVariation,
@@ -1722,6 +1993,8 @@ declare module "@prismicio/client" {
       FaqSliceSliceVariation,
       FaqSliceSliceDefault,
       FeatureImageCarouselSlice,
+      FeatureImageCarouselSliceDefaultPrimaryCarouselImagesItem,
+      FeatureImageCarouselSliceDefaultPrimary,
       FeatureImageCarouselSliceVariation,
       FeatureImageCarouselSliceDefault,
       FeaturesGridSlice,
@@ -1749,6 +2022,11 @@ declare module "@prismicio/client" {
       ImageHeroSliceVariation,
       ImageHeroSliceDefault,
       ImageHeroSliceImageBackgroundWithMargin,
+      PromiseFeaturesSlice,
+      PromiseFeaturesSliceDefaultPrimaryPromisesItem,
+      PromiseFeaturesSliceDefaultPrimary,
+      PromiseFeaturesSliceVariation,
+      PromiseFeaturesSliceDefault,
       ServicesIndexSlice,
       ServicesIndexSliceDefaultPrimary,
       ServicesIndexSliceVariation,

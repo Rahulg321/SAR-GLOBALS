@@ -11,6 +11,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "promise_features": {
+              "type": "SharedSlice"
+            },
+            "accounting_hero": {
+              "type": "SharedSlice"
+            },
+            "business_services": {
+              "type": "SharedSlice"
+            },
             "testimonial_grid": {
               "type": "SharedSlice"
             },

@@ -1,8 +1,8 @@
 {
-  "id": "feature_image_carousel",
+  "id": "promise_features",
   "type": "SharedSlice",
-  "name": "FeatureImageCarousel",
-  "description": "FeatureImageCarousel",
+  "name": "PromiseFeatures",
+  "description": "PromiseFeatures",
   "variations": [
     {
       "id": "default",
@@ -26,25 +26,24 @@
             "placeholder": ""
           }
         },
-        "badge": {
-          "type": "Text",
-          "config": {
-            "label": "Badge",
-            "placeholder": ""
-          }
-        },
-        "carousel_images": {
+        "promises": {
           "type": "Group",
           "config": {
-            "label": "Carousel Images",
+            "label": "Promises",
             "repeat": true,
             "fields": {
-              "item_image": {
-                "type": "Image",
+              "heading": {
+                "type": "Text",
                 "config": {
-                  "label": "Item Image",
-                  "constraint": {},
-                  "thumbnails": []
+                  "label": "Heading",
+                  "placeholder": ""
+                }
+              },
+              "tagline": {
+                "type": "Text",
+                "config": {
+                  "label": "Tagline",
+                  "placeholder": ""
                 }
               }
             }

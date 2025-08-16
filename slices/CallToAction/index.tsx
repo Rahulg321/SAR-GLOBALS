@@ -23,17 +23,14 @@ const CallToAction: FC<CallToActionProps> = ({ slice }) => {
         <div className="container mx-auto">
           <div className="flex flex-col text-center bg-muted rounded-md p-4 lg:p-14 gap-8 items-center">
             <div>
-              <Badge>Get started</Badge>
+              <Badge>{slice.primary.badge}</Badge>
             </div>
             <div className="flex flex-col gap-2">
               <h3 className="text-3xl md:text-5xl text-featured tracking-tighter max-w-xl font-regular">
-                Try our platform today!
+                {slice.primary.heading}
               </h3>
               <p className="text-lg leading-relaxed tracking-tight max-w-xl">
-                Managing a small business today is already tough. Avoid further
-                complications by ditching outdated, tedious trade methods. Our
-                goal is to streamline SMB trade, making it easier and faster
-                than ever.
+                {slice.primary.tagline}
               </p>
             </div>
           </div>

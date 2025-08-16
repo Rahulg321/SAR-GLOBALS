@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { PrismicNextImage } from "@prismicio/next";
 
 /**
  * Props for `FeatureImageCarousel`.
@@ -31,32 +32,27 @@ const FeatureImageCarousel: FC<FeatureImageCarouselProps> = ({ slice }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="flex gap-4 flex-col items-start">
               <div>
-                <Badge>Platform</Badge>
+                <Badge>{slice.primary.badge}</Badge>
               </div>
               <div className="flex gap-3 flex-col">
                 <h2 className="text-2xl text-featured md:text-3xl lg:text-4xl xl:text-5xl tracking-tighter font-regular text-left">
-                  This is the start of something new
+                  {slice.primary.heading}
                 </h2>
                 <p className="text-base lg:text-lg max-w-lg leading-relaxed tracking-tight text-muted-foreground text-left">
-                  Managing a small business today is already tough. Avoid
-                  further complications by ditching outdated, tedious trade
-                  methods. Our goal is to streamline SMB trade, making it easier
-                  and faster than ever.
+                  {slice.primary.tagline}
                 </p>
               </div>
             </div>
             <div className="w-full">
               <Carousel className="w-full">
                 <CarouselContent className="-ml-2 md:-ml-4">
-                  {Array.from({ length: 5 }).map((_, index) => (
+                  {slice.primary.carousel_images.map((e, index) => (
                     <CarouselItem
                       key={index}
                       className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-full"
                     >
                       <div className="flex rounded-lg aspect-video bg-muted items-center justify-center p-4">
-                        <span className="text-sm text-center px-2">
-                          Platform Screenshot {index + 1}
-                        </span>
+                        <PrismicNextImage field={e.item_image} />
                       </div>
                     </CarouselItem>
                   ))}
