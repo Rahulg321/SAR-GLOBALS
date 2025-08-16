@@ -121,6 +121,9 @@ export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
 type HomepageDocumentDataSlicesSlice =
+  | TestimonialGridSlice
+  | FeaturesGridSlice
+  | ImageContentSlice
   | ImageBackgroundSlice
   | CallToActionSlice
   | FeatureImageCarouselSlice
@@ -200,6 +203,9 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TestimonialGridSlice
+  | FeaturesGridSlice
+  | ImageContentSlice
   | ImageBackgroundSlice
   | CallToActionSlice
   | FeatureImageCarouselSlice
@@ -435,6 +441,41 @@ export type BlogIndexSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *CallToAction → Default → Primary*
+ */
+export interface CallToActionSliceDefaultPrimary {
+  /**
+   * Heading field in *CallToAction → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *CallToAction → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Badge field in *CallToAction → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.default.primary.badge
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  badge: prismic.KeyTextField;
+}
+
+/**
  * Default variation for CallToAction Slice
  *
  * - **API ID**: `default`
@@ -443,7 +484,7 @@ export type BlogIndexSlice = prismic.SharedSlice<
  */
 export type CallToActionSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<CallToActionSliceDefaultPrimary>,
   never
 >;
 
@@ -672,6 +713,118 @@ export type FeatureImageCarouselSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *FeaturesGrid → Default → Primary → Features*
+ */
+export interface FeaturesGridSliceDefaultPrimaryFeaturesItem {
+  /**
+   * Feature Heading field in *FeaturesGrid → Default → Primary → Features*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features_grid.default.primary.features[].feature_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  feature_heading: prismic.KeyTextField;
+
+  /**
+   * Feature Tagline field in *FeaturesGrid → Default → Primary → Features*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features_grid.default.primary.features[].feature_tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  feature_tagline: prismic.KeyTextField;
+
+  /**
+   * Feature Image field in *FeaturesGrid → Default → Primary → Features*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features_grid.default.primary.features[].feature_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  feature_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *FeaturesGrid → Default → Primary*
+ */
+export interface FeaturesGridSliceDefaultPrimary {
+  /**
+   * Heading field in *FeaturesGrid → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features_grid.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *FeaturesGrid → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features_grid.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Badge field in *FeaturesGrid → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features_grid.default.primary.badge
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  badge: prismic.KeyTextField;
+
+  /**
+   * Features field in *FeaturesGrid → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features_grid.default.primary.features[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  features: prismic.GroupField<
+    Simplify<FeaturesGridSliceDefaultPrimaryFeaturesItem>
+  >;
+}
+
+/**
+ * Default variation for FeaturesGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturesGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturesGridSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FeaturesGrid*
+ */
+type FeaturesGridSliceVariation = FeaturesGridSliceDefault;
+
+/**
+ * FeaturesGrid Shared Slice
+ *
+ * - **API ID**: `features_grid`
+ * - **Description**: FeaturesGrid
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturesGridSlice = prismic.SharedSlice<
+  "features_grid",
+  FeaturesGridSliceVariation
+>;
+
+/**
  * Primary content in *HeadingContent → Default → Primary*
  */
 export interface HeadingContentSliceDefaultPrimary {
@@ -810,6 +963,81 @@ type ImageBackgroundSliceVariation = ImageBackgroundSliceDefault;
 export type ImageBackgroundSlice = prismic.SharedSlice<
   "image_background",
   ImageBackgroundSliceVariation
+>;
+
+/**
+ * Primary content in *ImageContent → Default → Primary*
+ */
+export interface ImageContentSliceDefaultPrimary {
+  /**
+   * Heading field in *ImageContent → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_content.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *ImageContent → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_content.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Badge field in *ImageContent → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_content.default.primary.badge
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  badge: prismic.KeyTextField;
+
+  /**
+   * Featured Image field in *ImageContent → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_content.default.primary.featured_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ImageContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageContentSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageContent*
+ */
+type ImageContentSliceVariation = ImageContentSliceDefault;
+
+/**
+ * ImageContent Shared Slice
+ *
+ * - **API ID**: `image_content`
+ * - **Description**: ImageContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageContentSlice = prismic.SharedSlice<
+  "image_content",
+  ImageContentSliceVariation
 >;
 
 /**
@@ -1096,6 +1324,118 @@ export type TeamIndexSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *TestimonialGrid → Default → Primary → Testimonials*
+ */
+export interface TestimonialGridSliceDefaultPrimaryTestimonialsItem {
+  /**
+   * Name field in *TestimonialGrid → Default → Primary → Testimonials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_grid.default.primary.testimonials[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Role field in *TestimonialGrid → Default → Primary → Testimonials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_grid.default.primary.testimonials[].role
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * Rating field in *TestimonialGrid → Default → Primary → Testimonials*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_grid.default.primary.testimonials[].rating
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  rating: prismic.NumberField;
+
+  /**
+   * Company field in *TestimonialGrid → Default → Primary → Testimonials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_grid.default.primary.testimonials[].company
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  company: prismic.KeyTextField;
+
+  /**
+   * Person Image field in *TestimonialGrid → Default → Primary → Testimonials*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_grid.default.primary.testimonials[].person_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  person_image: prismic.ImageField<never>;
+
+  /**
+   * Content field in *TestimonialGrid → Default → Primary → Testimonials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_grid.default.primary.testimonials[].content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *TestimonialGrid → Default → Primary*
+ */
+export interface TestimonialGridSliceDefaultPrimary {
+  /**
+   * Testimonials field in *TestimonialGrid → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_grid.default.primary.testimonials[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  testimonials: prismic.GroupField<
+    Simplify<TestimonialGridSliceDefaultPrimaryTestimonialsItem>
+  >;
+}
+
+/**
+ * Default variation for TestimonialGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestimonialGridSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TestimonialGrid*
+ */
+type TestimonialGridSliceVariation = TestimonialGridSliceDefault;
+
+/**
+ * TestimonialGrid Shared Slice
+ *
+ * - **API ID**: `testimonial_grid`
+ * - **Description**: TestimonialGrid
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialGridSlice = prismic.SharedSlice<
+  "testimonial_grid",
+  TestimonialGridSliceVariation
+>;
+
+/**
  * Primary content in *TestimonialsSection → Default → Primary*
  */
 export interface TestimonialsSectionSliceDefaultPrimary {
@@ -1366,6 +1706,7 @@ declare module "@prismicio/client" {
       BlogIndexSliceVariation,
       BlogIndexSliceDefault,
       CallToActionSlice,
+      CallToActionSliceDefaultPrimary,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       ContactSectionSlice,
@@ -1383,6 +1724,11 @@ declare module "@prismicio/client" {
       FeatureImageCarouselSlice,
       FeatureImageCarouselSliceVariation,
       FeatureImageCarouselSliceDefault,
+      FeaturesGridSlice,
+      FeaturesGridSliceDefaultPrimaryFeaturesItem,
+      FeaturesGridSliceDefaultPrimary,
+      FeaturesGridSliceVariation,
+      FeaturesGridSliceDefault,
       HeadingContentSlice,
       HeadingContentSliceDefaultPrimary,
       HeadingContentSliceContentWithMutedBackgroundPrimary,
@@ -1393,6 +1739,10 @@ declare module "@prismicio/client" {
       ImageBackgroundSliceDefaultPrimary,
       ImageBackgroundSliceVariation,
       ImageBackgroundSliceDefault,
+      ImageContentSlice,
+      ImageContentSliceDefaultPrimary,
+      ImageContentSliceVariation,
+      ImageContentSliceDefault,
       ImageHeroSlice,
       ImageHeroSliceDefaultPrimary,
       ImageHeroSliceImageBackgroundWithMarginPrimary,
@@ -1408,6 +1758,11 @@ declare module "@prismicio/client" {
       TeamIndexSliceDefaultPrimary,
       TeamIndexSliceVariation,
       TeamIndexSliceDefault,
+      TestimonialGridSlice,
+      TestimonialGridSliceDefaultPrimaryTestimonialsItem,
+      TestimonialGridSliceDefaultPrimary,
+      TestimonialGridSliceVariation,
+      TestimonialGridSliceDefault,
       TestimonialsSectionSlice,
       TestimonialsSectionSliceDefaultPrimary,
       TestimonialsSectionSliceVariation,

@@ -1,8 +1,8 @@
 {
-  "id": "call_to_action",
+  "id": "image_content",
   "type": "SharedSlice",
-  "name": "CallToAction",
-  "description": "CallToAction",
+  "name": "ImageContent",
+  "description": "ImageContent",
   "variations": [
     {
       "id": "default",
@@ -31,6 +31,14 @@
           "config": {
             "label": "Badge",
             "placeholder": ""
+          }
+        },
+        "featured_image": {
+          "type": "Image",
+          "config": {
+            "label": "Featured Image",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

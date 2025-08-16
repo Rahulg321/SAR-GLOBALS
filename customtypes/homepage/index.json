@@ -11,6 +11,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "testimonial_grid": {
+              "type": "SharedSlice"
+            },
+            "features_grid": {
+              "type": "SharedSlice"
+            },
+            "image_content": {
+              "type": "SharedSlice"
+            },
             "image_background": {
               "type": "SharedSlice"
             },

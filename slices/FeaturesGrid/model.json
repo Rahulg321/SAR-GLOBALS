@@ -1,0 +1,71 @@
+{
+  "id": "features_grid",
+  "type": "SharedSlice",
+  "name": "FeaturesGrid",
+  "description": "FeaturesGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline",
+            "placeholder": ""
+          }
+        },
+        "badge": {
+          "type": "Text",
+          "config": {
+            "label": "Badge",
+            "placeholder": ""
+          }
+        },
+        "features": {
+          "type": "Group",
+          "config": {
+            "label": "Features",
+            "repeat": true,
+            "fields": {
+              "feature_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Feature Heading",
+                  "placeholder": ""
+                }
+              },
+              "feature_tagline": {
+                "type": "Text",
+                "config": {
+                  "label": "Feature Tagline",
+                  "placeholder": ""
+                }
+              },
+              "feature_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Feature Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
