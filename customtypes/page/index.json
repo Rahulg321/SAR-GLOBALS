@@ -17,6 +17,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "promise_features": {
+              "type": "SharedSlice"
+            },
+            "business_award_section": {
+              "type": "SharedSlice"
+            },
             "accounting_hero": {
               "type": "SharedSlice"
             },

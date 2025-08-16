@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
 /**
  * Props for `FaqSlice`.
  */
@@ -22,35 +23,30 @@ const FaqSlice: FC<FaqSliceProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="w-full  block-space"
     >
-      <div className="mx-auto px-4 narrow-container">
-        <div>
-          <div className="space-y-4">
-            <h2 className="text-3xl font-semibold mb-8">
-              {slice.primary.heading}
-            </h2>
-            {isFilled.keyText(slice.primary.tagline) && (
-              <p className="text-xl">{slice.primary.tagline}</p>
-            )}
-          </div>
-
-          <div>
-            <Accordion type="single" collapsible className="space-y-4">
-              {slice.primary.questions.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index + 4}`}
-                  className="border-b border-[#1a2d5a]/20"
-                >
-                  <AccordionTrigger className=" text-left hover:no-underline py-4 text-sm md:text-lg ">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-4 prose prose-ul:list-disc prose-ul:marker:text-red-500 text-sm">
-                    <PrismicRichText field={faq.answer} />
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+      <div className="container">
+        <div className="text-center">
+          <Badge className="text-xs font-medium">{slice.primary.badge}</Badge>
+          <h1 className="mt-4 text-4xl font-semibold text-featured">
+            {slice.primary.heading}
+          </h1>
+          <p className="mt-6 font-medium text-muted-foreground">
+            {slice.primary.tagline}
+          </p>
+        </div>
+        <div className="mx-auto mt-14 max-w-screen-sm">
+          {slice.primary.questions.map((e, index) => (
+            <div key={index} className="mb-8 flex gap-4">
+              <span className="flex size-6 shrink-0 items-center justify-center rounded-sm bg-secondary font-mono text-xs text-primary">
+                {index + 1}
+              </span>
+              <div className="w-full space-y-2">
+                <h3 className="font-medium">{e.question}</h3>
+                <div className="prose max-w-none w-full">
+                  <PrismicRichText field={e.answer} />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -19,6 +19,13 @@
             "placeholder": ""
           }
         },
+        "badge": {
+          "type": "Text",
+          "config": {
+            "label": "Badge",
+            "placeholder": ""
+          }
+        },
         "tagline": {
           "type": "Text",
           "config": {

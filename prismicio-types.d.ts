@@ -121,6 +121,7 @@ export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
 type HomepageDocumentDataSlicesSlice =
+  | BusinessAwardSectionSlice
   | PromiseFeaturesSlice
   | AccountingHeroSlice
   | BusinessServicesSlice
@@ -206,6 +207,8 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | PromiseFeaturesSlice
+  | BusinessAwardSectionSlice
   | AccountingHeroSlice
   | BusinessServicesSlice
   | TestimonialGridSlice
@@ -521,6 +524,61 @@ export type BlogIndexSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *BusinessAwardSection → Default → Primary*
+ */
+export interface BusinessAwardSectionSliceDefaultPrimary {
+  /**
+   * Featured Image field in *BusinessAwardSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: business_award_section.default.primary.featured_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>;
+
+  /**
+   * Content field in *BusinessAwardSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: business_award_section.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for BusinessAwardSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BusinessAwardSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BusinessAwardSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BusinessAwardSection*
+ */
+type BusinessAwardSectionSliceVariation = BusinessAwardSectionSliceDefault;
+
+/**
+ * BusinessAwardSection Shared Slice
+ *
+ * - **API ID**: `business_award_section`
+ * - **Description**: BusinessAwardSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BusinessAwardSectionSlice = prismic.SharedSlice<
+  "business_award_section",
+  BusinessAwardSectionSliceVariation
+>;
+
+/**
  * Default variation for BusinessServices Slice
  *
  * - **API ID**: `default`
@@ -738,6 +796,16 @@ export interface FaqSliceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   heading: prismic.KeyTextField;
+
+  /**
+   * Badge field in *FaqSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_slice.default.primary.badge
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  badge: prismic.KeyTextField;
 
   /**
    * Tagline field in *FaqSlice → Default → Primary*
@@ -1973,6 +2041,10 @@ declare module "@prismicio/client" {
       BlogIndexSliceDefaultPrimary,
       BlogIndexSliceVariation,
       BlogIndexSliceDefault,
+      BusinessAwardSectionSlice,
+      BusinessAwardSectionSliceDefaultPrimary,
+      BusinessAwardSectionSliceVariation,
+      BusinessAwardSectionSliceDefault,
       BusinessServicesSlice,
       BusinessServicesSliceVariation,
       BusinessServicesSliceDefault,

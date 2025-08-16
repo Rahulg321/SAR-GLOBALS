@@ -44,6 +44,11 @@
 						]
 					}
 				]
+			},
+			"badge": {
+				"__TYPE__": "FieldContent",
+				"value": "farther",
+				"type": "Text"
 			}
 		},
 		"items": []

@@ -5,14 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MoveRight, PhoneCall } from "lucide-react";
 
-/**
- * Props for `CallToAction`.
- */
 export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
 
-/**
- * Component for "CallToAction" Slices.
- */
 const CallToAction: FC<CallToActionProps> = ({ slice }) => {
   return (
     <section
@@ -21,7 +15,7 @@ const CallToAction: FC<CallToActionProps> = ({ slice }) => {
     >
       <div className="w-full ">
         <div className="container mx-auto">
-          <div className="flex flex-col text-center bg-muted rounded-md p-4 lg:p-14 gap-8 items-center">
+          <div className="flex flex-col text-center bg-muted rounded-md p-4 lg:p-14 gap-8 items-center block-space">
             <div>
               <Badge>{slice.primary.badge}</Badge>
             </div>
