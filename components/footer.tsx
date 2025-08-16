@@ -26,31 +26,31 @@ export default function Footer() {
             <div className="flex space-x-3">
               <Link
                 href="#"
-                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-colors"
               >
                 <Facebook className="w-5 h-5" />
               </Link>
               <Link
                 href="#"
-                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-colors"
               >
                 <Instagram className="w-5 h-5" />
               </Link>
               <Link
                 href="#"
-                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center  transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
               </Link>
               <Link
                 href="#"
-                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-colors"
               >
                 <Youtube className="w-5 h-5" />
               </Link>
               <Link
                 href="#"
-                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-colors"
               >
                 <Globe className="w-5 h-5" />
               </Link>
@@ -60,12 +60,12 @@ export default function Footer() {
           <div className="space-y-6">
             <div>
               <h3 className="text-xl font-semibold mb-2">Contact Info</h3>
-              <div className="w-16 h-1 bg-green-500 mb-6"></div>
+              <div className="w-16 h-1 bg-white mb-6"></div>
             </div>
 
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div className="text-sm">
@@ -75,7 +75,7 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div className="text-sm">
@@ -85,7 +85,7 @@ export default function Footer() {
               </div>
 
               <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div className="text-sm">
@@ -98,7 +98,7 @@ export default function Footer() {
               </div>
 
               <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div className="text-sm">
@@ -113,78 +113,46 @@ export default function Footer() {
           <div className="space-y-6">
             <div>
               <h3 className="text-xl font-semibold mb-2">Quick Links</h3>
-              <div className="w-16 h-1 bg-green-500 mb-6"></div>
+
+              <div className="w-16 h-1 bg-white mb-6"></div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-3">
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Faqs
                 </Link>
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Blogs
                 </Link>
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Careers
                 </Link>
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Accounts Outsourcing India
                 </Link>
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Bookkeeping & Accounts Outsourcing
                 </Link>
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Outsourced Finance Department
                 </Link>
               </div>
 
               <div className="space-y-3">
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Contact Us
                 </Link>
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Downloads
                 </Link>
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Newsletters
                 </Link>
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Terms Of Service
                 </Link>
-                <Link
-                  href="#"
-                  className="block text-sm hover:text-green-400 transition-colors"
-                >
+                <Link href="#" className="block text-sm transition-colors">
                   Turnaround Time
                 </Link>
               </div>

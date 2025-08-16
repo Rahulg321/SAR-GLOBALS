@@ -34,7 +34,7 @@ const FeatureImageCarousel: FC<FeatureImageCarouselProps> = ({ slice }) => {
                 <Badge>Platform</Badge>
               </div>
               <div className="flex gap-3 flex-col">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-tighter font-regular text-left">
+                <h2 className="text-2xl text-featured md:text-3xl lg:text-4xl xl:text-5xl tracking-tighter font-regular text-left">
                   This is the start of something new
                 </h2>
                 <p className="text-base lg:text-lg max-w-lg leading-relaxed tracking-tight text-muted-foreground text-left">

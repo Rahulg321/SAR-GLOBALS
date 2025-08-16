@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 // Simple TopBar for contact info (remains the same)
 const TopBar = () => {
   return (
-    <div className="bg-[#0B3558] text-white py-2">
+    <div className="bg-featured text-white py-2">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row lg:justify-between items-center space-y-2 lg:space-y-0">
           <div className="flex flex-col sm:flex-row items-center sm:space-x-6 space-y-2 sm:space-y-0 text-sm">
@@ -118,7 +118,7 @@ const MobileNav = ({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-4 border-b flex justify-between items-center">
-          <span className="font-semibold text-lg text-[#0B3558]">Menu</span>
+          <span className="font-semibold text-lg text-featured">Menu</span>
           <button onClick={onClose} className="p-2">
             <X className="h-6 w-6" />
           </button>
@@ -129,7 +129,7 @@ const MobileNav = ({
             <Link
               key={link.href}
               href={link.href}
-              className="block px-6 py-4 hover:bg-gray-100 font-medium border-b text-[#0B3558]"
+              className="block px-6 py-4 hover:bg-gray-100 font-medium border-b text-featured"
               onClick={onClose} // Close menu on link click
             >
               {link.label}
@@ -141,7 +141,7 @@ const MobileNav = ({
           <div className="flex flex-col gap-3">
             <Button
               asChild
-              className="w-full bg-[#0B3558] text-white hover:bg-[#0B3558]/90"
+              className="w-full bg-featured text-white hover:bg-featured/90"
             >
               <Link href="/book-meeting">Book A Meeting</Link>
             </Button>
@@ -161,7 +161,7 @@ const MainNav = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex-shrink-0">
-            <span className="text-2xl font-bold text-[#0B3558]">
+            <span className="text-2xl font-bold text-featured">
               SAR Globals
             </span>
           </Link>
@@ -173,7 +173,7 @@ const MainNav = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-gray-600 hover:text-[#0B3558] transition-colors"
+                  className="text-sm font-medium text-gray-600 hover:text-featured transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -183,7 +183,7 @@ const MainNav = () => {
             <div className="flex items-center space-x-2 pl-4">
               <Button
                 asChild
-                className="bg-[#0B3558] text-white hover:bg-[#0B3558]/90"
+                className="bg-featured text-white hover:bg-featured/90"
               >
                 <Link href="/book-meeting">Book A Meeting</Link>
               </Button>
@@ -196,7 +196,7 @@ const MainNav = () => {
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Open menu"
           >
-            <Menu className="h-6 w-6 text-[#0B3558]" />
+            <Menu className="h-6 w-6 text-featured" />
           </button>
         </div>
       </div>

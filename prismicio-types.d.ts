@@ -748,6 +748,41 @@ export type HeadingContentSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ImageBackground → Default → Primary*
+ */
+export interface ImageBackgroundSliceDefaultPrimary {
+  /**
+   * Heading field in *ImageBackground → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_background.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *ImageBackground → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_background.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Background Image field in *ImageBackground → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_background.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
  * Default variation for ImageBackground Slice
  *
  * - **API ID**: `default`
@@ -756,7 +791,7 @@ export type HeadingContentSlice = prismic.SharedSlice<
  */
 export type ImageBackgroundSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ImageBackgroundSliceDefaultPrimary>,
   never
 >;
 
@@ -1355,6 +1390,7 @@ declare module "@prismicio/client" {
       HeadingContentSliceDefault,
       HeadingContentSliceContentWithMutedBackground,
       ImageBackgroundSlice,
+      ImageBackgroundSliceDefaultPrimary,
       ImageBackgroundSliceVariation,
       ImageBackgroundSliceDefault,
       ImageHeroSlice,

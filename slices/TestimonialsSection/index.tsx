@@ -19,11 +19,11 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
           {/* Left Column - Call to Action */}
           <div className="bg-gray-50 p-8 lg:p-12 flex flex-col justify-center">
             <div className="max-w-md">
-              <p className="text-green-600 font-medium mb-6 tracking-wide">
+              <p className="text-featured font-medium mb-6 tracking-wide">
                 Testimonials
               </p>
 
-              <div className="border-l-4 border-green-600 pl-6 mb-8">
+              <div className="border-l-4 border-featured pl-6 mb-8">
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                   {slice.primary.heading}
                 </h2>
@@ -32,7 +32,7 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
           </div>
 
           {/* Right Column - Testimonial */}
-          <div className="bg-green-600 p-8 lg:p-12 flex flex-col justify-center text-white">
+          <div className="bg-featured p-8 lg:p-12 flex flex-col justify-center text-white">
             <div>
               <div className="prose text-white">
                 <PrismicRichText field={slice.primary.content} />
