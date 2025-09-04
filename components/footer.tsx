@@ -57,7 +57,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             <div>
               <h3 className="text-xl font-semibold mb-2">Contact Info</h3>
               <div className="w-16 h-1 bg-white mb-6"></div>
@@ -107,7 +107,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Quick Links Section */}
           <div className="space-y-6">
@@ -166,7 +166,7 @@ export default function Footer() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             <div className="text-sm text-gray-300">
-              © 2025 Sapphire Info Solutions (P) Ltd. All Rights Reserved.
+              © 2025 Helping CPA&apos;s Ltd. All Rights Reserved.
             </div>
 
             <div className="flex flex-wrap justify-center lg:justify-end items-center space-x-1 text-sm text-gray-300">
