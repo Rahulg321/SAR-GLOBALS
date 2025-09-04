@@ -17,7 +17,6 @@ export type FaqSliceProps = SliceComponentProps<Content.FaqSliceSlice>;
  * Component for "FaqSlice" Slices.
  */
 const FaqSlice: FC<FaqSliceProps> = ({ slice }) => {
-
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -42,7 +41,7 @@ const FaqSlice: FC<FaqSliceProps> = ({ slice }) => {
               </span>
               <div className="w-full space-y-2">
                 <h3 className="font-medium">{e.question}</h3>
-                <div className="prose max-w-none w-full">
+                <div className="prose text-justify max-w-none w-full">
                   <PrismicRichText field={e.answer} />
                 </div>
               </div>
