@@ -50,6 +50,15 @@ const BusinessServices: FC<BusinessServicesProps> = ({ slice }) => {
               Helping CPAs can support your firm with zero risk.
             </p>
 
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              Your firm is unique — and so are your needs. That’s why we don’t
+              believe in one-size-fits-all pricing. Request a free, personalized
+              quote today and see exactly how Helping CPAs can add value to your
+              practice. With transparent pricing and no hidden costs, you’ll
+              know upfront what works best for your firm. Plus, your first
+              consultation is free.
+            </p>
+
             <div className="mb-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 What we offer :
