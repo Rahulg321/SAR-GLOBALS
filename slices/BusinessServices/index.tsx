@@ -2,7 +2,14 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { Button } from "@/components/ui/button";
-import { BarChart3, Building2, Download, FileText } from "lucide-react";
+import {
+  Building2,
+  FileText,
+  CreditCard,
+  RefreshCcw,
+  PieChart,
+  CalendarClock,
+} from "lucide-react";
 
 /**
  * Props for `BusinessServices`.
@@ -37,10 +44,10 @@ const BusinessServices: FC<BusinessServicesProps> = ({ slice }) => {
             </h2>
 
             <p className="text-gray-600 mb-8 leading-relaxed">
-              In dapibus quis arci in eleifend. Suspendisse porttitor nunc
-              justo, sed accumsan risus facilisis sit amet. Suspendisse ut eros
-              nisl. Ut accumsan nec tellus vel pulvinar. Sed vel facilisis odio.
-              Vivamus ac posuere arcu.
+              Tell us what you need, and we’ll send you a clear, customized
+              quote — fast, simple, and with no strings attached. Plus, your
+              first consultation is absolutely free, so you can explore how
+              Helping CPAs can support your firm with zero risk.
             </p>
 
             <div className="mb-8">
@@ -79,11 +86,6 @@ const BusinessServices: FC<BusinessServicesProps> = ({ slice }) => {
                 </li>
               </ul>
             </div>
-
-            <Button className="w-full bg-slate-800 hover:bg-slate-700 text-white py-3 px-6 text-base font-medium">
-              <Download className="w-5 h-5 mr-2" />
-              DOWNLOAD OUR BROCHURE
-            </Button>
           </div>
 
           {/* Right Column - Our Services */}
@@ -110,9 +112,8 @@ const BusinessServices: FC<BusinessServicesProps> = ({ slice }) => {
                     Accounting & Bookkeeping
                   </h3>
                   <p className="text-slate-300 leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                    leo.
+                    Complete day-to-day bookkeeping using platforms like
+                    QuickBooks, Xero, and Sage.
                   </p>
                 </div>
               </div>
@@ -127,25 +128,66 @@ const BusinessServices: FC<BusinessServicesProps> = ({ slice }) => {
                     Tax Compliance & Payroll
                   </h3>
                   <p className="text-slate-300 leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                    leo.
+                    Accurate calculation of salaries, deductions, and tax
+                    withholdings.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <div className="bg-orange-500 p-3 rounded-lg flex-shrink-0">
-                  <BarChart3 className="w-6 h-6 text-white" />
+                  <CreditCard className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-orange-400 mb-2">
-                    Business Performance Monitor
+                    Bank & Account Reconciliations
                   </h3>
                   <p className="text-slate-300 leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                    leo.
+                    Monthly reconciliation of bank statements, credit cards, and
+                    vendor accounts.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="bg-orange-500 p-3 rounded-lg flex-shrink-0">
+                  <RefreshCcw className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-orange-400 mb-2">
+                    Quickbooks & Software Conversions
+                  </h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    Migration from legacy systems to QuickBooks or other modern
+                    accounting software.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-orange-500 p-3 rounded-lg flex-shrink-0">
+                  <PieChart className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-orange-400 mb-2">
+                    Financial Reporting
+                  </h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    Preparation of accurate financial statements, balance
+                    sheets, and P&L reports.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-orange-500 p-3 rounded-lg flex-shrink-0">
+                  <CalendarClock className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-orange-400 mb-2">
+                    Tax Season Support
+                  </h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    Additional workforce support during peak tax seasons.
                   </p>
                 </div>
               </div>
