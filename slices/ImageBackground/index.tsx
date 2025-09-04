@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 /**
  * Props for `ImageBackground`.
@@ -33,8 +34,11 @@ const ImageBackground: FC<ImageBackgroundProps> = ({ slice }) => {
           {slice.primary.tagline}
         </p>
 
-        <Button className="bg-white text-black hover:bg-white/90 hover:text-black/90 font-semibold px-8 py-3 text-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-          Learn More
+        <Button
+          className="bg-white text-black hover:bg-white/90 hover:text-black/90 font-semibold px-8 py-3 text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+          asChild
+        >
+          <Link href={"/about"}>Learn More</Link>
         </Button>
       </div>
     </section>
