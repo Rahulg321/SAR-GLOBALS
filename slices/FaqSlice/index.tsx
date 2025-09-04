@@ -17,6 +17,7 @@ export type FaqSliceProps = SliceComponentProps<Content.FaqSliceSlice>;
  * Component for "FaqSlice" Slices.
  */
 const FaqSlice: FC<FaqSliceProps> = ({ slice }) => {
+
   return (
     <section
       data-slice-type={slice.slice_type}

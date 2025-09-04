@@ -128,7 +128,7 @@ const MainNav = () => {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex-shrink-0">
             <span className="text-2xl font-bold text-featured">
-              SAR Globals
+              Helping CPAs
             </span>
           </Link>
 
@@ -179,7 +179,6 @@ const MainNav = () => {
 const Header = () => {
   return (
     <header className="relative">
-      <TopBar />
       <MainNav />
     </header>
   );

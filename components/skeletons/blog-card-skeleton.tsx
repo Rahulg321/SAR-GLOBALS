@@ -13,7 +13,6 @@ const BlogCardSkeleton = () => {
 
       <CardHeader className="p-4 pb-2 space-y-2">
         <Skeleton className="h-6 w-24" />
-
         <Skeleton className="h-7 w-full" />
       </CardHeader>
 
