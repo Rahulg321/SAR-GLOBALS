@@ -1,12 +1,7 @@
 import { FC } from "react";
-import { Content, isFilled } from "@prismicio/client";
+import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+
 import { Badge } from "@/components/ui/badge";
 /**
  * Props for `FaqSlice`.

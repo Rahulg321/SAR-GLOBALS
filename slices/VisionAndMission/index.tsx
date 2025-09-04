@@ -62,7 +62,7 @@ const InfoCard = ({ icon: Icon, title, children, variant }: InfoCardProps) => {
  */
 const VisionAndMission: FC<VisionAndMissionProps> = ({ slice }) => {
   return (
-    <section className="w-full">
+    <section className="w-full block-space">
       <div className="grid md:grid-cols-2 min-h-[400px]">
         <InfoCard
           title={slice.primary.vision_heading}
