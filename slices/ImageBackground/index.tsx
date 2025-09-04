@@ -29,7 +29,7 @@ const ImageBackground: FC<ImageBackgroundProps> = ({ slice }) => {
           {slice.primary.heading}
         </h1>
 
-        <p className="text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed text-white/90 font-medium drop-shadow-lg max-w-3xl">
+        <p className="text-lg md:text-xl  mb-8 leading-relaxed text-white/90 font-medium drop-shadow-lg max-w-3xl">
           {slice.primary.tagline}
         </p>
 
