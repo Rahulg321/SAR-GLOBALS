@@ -17,6 +17,7 @@ const BusinessAwardSection: FC<BusinessAwardSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="block-space"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
